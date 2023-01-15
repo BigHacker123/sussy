@@ -50,13 +50,6 @@ local esp = {
         visible_Color = Color3fromRGB(0, 255, 0),
         invisible_Color = Color3fromRGB(255, 0, 0),
     },
-    customsettings = {
-        enabled = true,
-        maxdist = 4000,
-        names = {enabled = true, outline = true, size = 13, color = Color3fromRGB(255, 255, 255)},
-        distance = {enabled = true, outline = true, color = Color3fromRGB(255, 255, 255)},
-        chams = {enabled = true, fill_transparency = 0, outline_transparency = 0, fill_color = Color3fromRGB(255, 255, 255), outline_color = Color3fromRGB(0, 0, 0)}
-    }
 }
 
 esp.NewDrawing = function(type, properties)
@@ -396,6 +389,7 @@ esp_Loop = rs.RenderStepped:Connect(function()
             v.arrow.Visible = false
         end
     end
+end)
 
 local function DrawLine()
     local l = Drawing.new("Line")
@@ -593,4 +587,3 @@ end
 
 getgenv().esp = esp
 return esp
-end)
