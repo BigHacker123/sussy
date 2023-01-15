@@ -391,6 +391,8 @@ esp_Loop = rs.RenderStepped:Connect(function()
     end
 end)
 
+    local hrp = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+
 local function DrawLine()
     local l = Drawing.new("Line")
     l.Visible = false
