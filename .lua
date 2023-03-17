@@ -34,6 +34,7 @@ local esp = {
         healthtext = {enabled = false, outline = true, color = Color3fromRGB(255, 255, 255)},
         distance = {enabled = false, outline = true, color = Color3fromRGB(255, 255, 255)},
         viewangle = {enabled = false, size = 6, color = Color3fromRGB(255, 255, 255)},
+        weapon = {enabled = false, outline = true, color = Color3fromRGB(255, 255, 255)},
         skeleton = {enabled = false, color = Color3fromRGB(255, 255, 255)},
         tracer = {enabled = false, origin = "Middle", color = Color3fromRGB(255, 255, 255)},
         arrow = {enabled = false, radius = 100, size = 25, filled = false, transparency = 1, color = Color3fromRGB(255, 255, 255)}
@@ -296,7 +297,8 @@ esp_Loop = rs.RenderStepped:Connect(function()
                     v.viewAngle.Visible = false
                 end
                 v.arrow.Visible = false
-                --[[if esp.settings.weapon.enabled then
+                
+                if esp.settings.weapon.enabled then
                     v.weapon.Visible = true
                     v.weapon.Position = Vector2new(BoxSize.X + BoxPos.X + v.weapon.TextBounds.X / 2 + 3, BoxPos.Y - 3)
                     v.weapon.Outline = esp.settings.name.outline
@@ -308,7 +310,7 @@ esp_Loop = rs.RenderStepped:Connect(function()
                     v.weapon.Text = esp.GetEquippedTool(i)
                 else
                     v.weapon.Visible = false
-                end]]
+                end
 
                 if esp.teamcheck then
                     if esp.TeamCheck(i) then
